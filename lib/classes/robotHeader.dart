@@ -7,57 +7,58 @@ class RobotHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return SizedBox(
-      height: 220,
+      height: width * 0.55, // responsive height
       child: Stack(
         clipBehavior: Clip.none,
-        alignment: Alignment.topLeft,
         children: [
+          /// 🔵 Background circle
           Positioned(
-            // Move this slightly further up and right than the main circle
-            left: 42, // Adjusted from -52
-            top: -105, // Adjusted from 145 (moved up 40px)
+            left: width * 0.1,
+            top: -width * 0.25,
             child: Container(
-              width: 236, // Slightly smaller than 310
-              height: 236, // Slightly smaller than 310
+              width: width * 0.6,
+              height: width * 0.6,
               decoration: BoxDecoration(
-                color: const Color(0xFFBEF1FF), // Crisp background color
+                color: const Color(0xFFBEF1FF),
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.25),
-                    blurRadius: 30,
-                    offset: const Offset(6, 12),
+                    blurRadius: width * 0.08,
+                    offset: Offset(width * 0.00, width * 0.06),
                   ),
                 ],
-                // Removed original blur/shadow/backdrop from here
               ),
             ),
           ),
 
-          /// 🔵 Gradient Circle
+          /// 🔵 Gradient blur circle
           Positioned(
-            left: -52,
-            top: -85,
+            left: -width * 0.15,
+            top: -width * 0.2,
             child: Container(
-              width: 310,
-              height: 310,
+              width: width * 0.8,
+              height: width * 0.8,
               decoration: BoxDecoration(
-                color: Color.fromRGBO(209, 245, 255, 0.3),
+                color: const Color.fromRGBO(209, 245, 255, 0.3),
                 shape: BoxShape.circle,
-                // Box shadow implementation
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromRGBO(0, 0, 0, 0.25),
-                    blurRadius: 30,
-                    offset: const Offset(6, 12),
+                    color: Colors.black.withOpacity(0.25),
+                    blurRadius: width * 0.06,
+                    offset: Offset(width * 0.00, width * 0.06),
                   ),
                 ],
               ),
-              // ClipOval ensures the blur stays within the circle
               child: ClipOval(
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                  filter: ImageFilter.blur(
+                    sigmaX: width * 0.04,
+                    sigmaY: width * 0.04,
+                  ),
                   child: Container(
                     color: const Color.fromRGBO(209, 245, 255, 0.3),
                   ),
@@ -68,13 +69,30 @@ class RobotHeader extends StatelessWidget {
 
           /// 🤖 Robot Image
           Positioned(
-            bottom: 0,
-            left: -118,
+            bottom: -width * 0.14,
+            left: -width * 0.10,
             child: Image.asset(
               'images/robot.png',
-              width: 330,
-              height: 335, // <-- replace with
-              // your image
+              width: width * 0.6, // scales with screen
+              fit: BoxFit.contain,
+            ),
+          ),
+          Positioned(
+            bottom: -width * 0.10,
+            left: -width * 0.06,
+            child: Container(
+              width: width * 0.3,
+              height: width * 0.3,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.25),
+                    blurRadius: width * 0.1,
+                    offset: Offset(width * 0.00, width * 0.06),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -86,9 +104,7 @@ class RobotHeader extends StatelessWidget {
 class GradientButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-
   const GradientButton({super.key, required this.text, required this.onTap});
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

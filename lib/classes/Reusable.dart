@@ -9,6 +9,7 @@ class ReusableButton extends StatelessWidget {
   String language = '';
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -17,7 +18,9 @@ class ReusableButton extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 14),
+        padding: EdgeInsets.symmetric(
+          horizontal: width * 0.04, // responsive padding
+        ),
         decoration: BoxDecoration(
           // This creates the border and the rounded "pill" shape
           border: Border.all(color: Colors.white, width: 1),
@@ -34,12 +37,12 @@ class ReusableButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               child: Image.asset(
                 image,
-                height: 18,
-                width: 18,
+                height: width * 0.05,
+                width: width * 0.05,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(width: 16),
+            SizedBox(width: width * 0.03),
             Text(
               language,
               style: kTextStyle, // Small font for 24px height
