@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:oneface/classes/screenSizer.dart';
 
 class RobotHeader extends StatelessWidget {
   const RobotHeader({super.key});
@@ -110,7 +111,7 @@ class GradientButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 52,
+        height: SizeConfig.h(52),
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
@@ -128,9 +129,9 @@ class GradientButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
-            fontSize: 14,
+            fontSize: SizeConfig.w(14),
             fontWeight: FontWeight.w500,
           ),
         ),

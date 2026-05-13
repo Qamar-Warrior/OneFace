@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/classes/Reusable.dart';
+import 'package:oneface/classes/screenSizer.dart';
 import '../const.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -7,17 +8,18 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       backgroundColor: Color(0xFF24D0FF),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.w(24)),
           child: Column(
             children: [
               const Spacer(flex: 3),
 
               /// 🧠 Logo (slightly above center)
-              Image.asset('images/logo.png'),
+              Image.asset('images/logo.png', height: SizeConfig.h(300)),
 
               const Spacer(flex: 2),
 
@@ -27,21 +29,21 @@ class WelcomeScreen extends StatelessWidget {
                 style: kTextStyle.copyWith(fontWeight: FontWeight.bold),
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: SizeConfig.h(16)),
 
               /// 🌐 Language buttons
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                 children: [
                   ReusableButton(image: "images/uzbflag.jpg", language: "UZB"),
-                  const SizedBox(width: 12),
+
                   ReusableButton(image: "images/uzbflag.jpg", language: "УЗБ"),
-                  const SizedBox(width: 12),
+
                   ReusableButton(image: "images/rusflag.jpg", language: "РУС"),
                 ],
               ),
-
-              const SizedBox(height: 28),
+              SizedBox(height: SizeConfig.h(28)),
             ],
           ),
         ),

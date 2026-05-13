@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/pages/welcomeScreen.dart';
+import 'package:flutter/services.dart'; // Required for SystemChrome
 
-void main() {
+void main() async {
+  // 1. Ensure the platform is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // 2. Lock the orientation to Portrait only
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   runApp(const OneFace());
 }
 
@@ -13,7 +20,7 @@ class OneFace extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Montserrat', // <-- replace with your font
-        scaffoldBackgroundColor: Color(0xFF0A0E21),
+        scaffoldBackgroundColor: Color(0xFFFFFFFF),
       ),
       home: WelcomeScreen(),
     );
