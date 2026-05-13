@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/classes/screenSizer.dart';
 import 'package:oneface/classes/telefonRaqamButtons.dart';
+import 'package:oneface/pages/pinCreation.dart';
+import 'package:oneface/classes/imagePosition.dart';
 
 class TelefonScreen extends StatefulWidget {
   const TelefonScreen({super.key});
@@ -19,41 +21,12 @@ class _TelefonScreenState extends State<TelefonScreen> {
         clipBehavior: Clip.none,
         children: [
           // Background passport image (decorative)
-          Positioned(
+          PositionedBackgroundImage(
+            imagePath: 'images/backimage.png',
             top: SizeConfig.w(120),
             left: SizeConfig.w(-100),
-            child: Opacity(
-              opacity: 0.45,
-              child: Image.asset(
-                'images/backimage.png',
-                height: SizeConfig.h(500),
-                fit: BoxFit.contain,
-                errorBuilder: (_, __, ___) => Container(
-                  height: SizeConfig.h(500),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        const Color(0xFFB8D4F0),
-                        const Color(0xFFD6E8FB),
-                        const Color(0xFFEFF6FF),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  margin: EdgeInsets.symmetric(horizontal: SizeConfig.w(24)),
-                  child: Icon(
-                    Icons.credit_card,
-                    size: SizeConfig.w(120),
-                    color: Color(0xFFADCAE8),
-                  ),
-                ),
-              ),
-            ),
+            height: SizeConfig.h(500),
           ),
-
-          // Main content
           SafeArea(
             child: Column(
               children: [
@@ -158,7 +131,14 @@ class _TelefonScreenState extends State<TelefonScreen> {
                         width: double.infinity,
                         height: SizeConfig.h(52),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PinCreation(),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF93C5E8),
                             foregroundColor: Colors.white,

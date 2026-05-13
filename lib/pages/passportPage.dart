@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:oneface/classes/screenSizer.dart';
 import 'package:oneface/classes/passPortButton.dart';
 
+import '../classes/imagePosition.dart';
+
 class PassportScreen extends StatefulWidget {
   const PassportScreen({super.key});
 
@@ -43,38 +45,11 @@ class _PassportScreenState extends State<PassportScreen> {
       body: Stack(
         children: [
           // Background passport image (decorative)
-          Positioned(
+          PositionedBackgroundImage(
+            imagePath: 'images/backimage.png',
             top: SizeConfig.w(120),
             left: SizeConfig.w(-100),
-            child: Opacity(
-              opacity: 0.45,
-              child: Image.asset(
-                'images/backimage.png',
-                height: SizeConfig.h(500),
-                fit: BoxFit.contain,
-                errorBuilder: (_, __, ___) => Container(
-                  height: SizeConfig.h(500),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        const Color(0xFFB8D4F0),
-                        const Color(0xFFD6E8FB),
-                        const Color(0xFFEFF6FF),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  margin: EdgeInsets.symmetric(horizontal: SizeConfig.w(24)),
-                  child: Icon(
-                    Icons.credit_card,
-                    size: SizeConfig.w(120),
-                    color: Color(0xFFADCAE8),
-                  ),
-                ),
-              ),
-            ),
+            height: SizeConfig.h(500),
           ),
 
           // Main content
