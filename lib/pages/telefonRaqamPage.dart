@@ -16,20 +16,20 @@ class _TelefonScreenState extends State<TelefonScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
+        clipBehavior: Clip.none,
         children: [
           // Background passport image (decorative)
           Positioned(
-            top: 140,
-            left: 100,
-            right: 0,
+            top: SizeConfig.w(120),
+            left: SizeConfig.w(-100),
             child: Opacity(
-              opacity: 0.25,
+              opacity: 0.45,
               child: Image.asset(
                 'images/backimage.png',
-                height: SizeConfig.h(400),
-                fit: BoxFit.cover,
+                height: SizeConfig.h(500),
+                fit: BoxFit.contain,
                 errorBuilder: (_, __, ___) => Container(
-                  height: SizeConfig.h(400),
+                  height: SizeConfig.h(500),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
