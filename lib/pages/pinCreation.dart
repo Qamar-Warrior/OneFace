@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/classes/screenSizer.dart';
 import 'package:oneface/classes/imagePosition.dart';
+import 'package:oneface/pages/faceIdPage.dart';
 import '../classes/otpInputbox.dart';
 import '../const.dart';
 
@@ -56,7 +57,7 @@ class _PinCreationState extends State<PinCreation> {
                           onTap: () => Navigator.maybePop(context),
                           child: Icon(
                             Icons.arrow_back,
-                            color: Color(0xFF3B82F6),
+                            color: kArrowColor,
                             size: SizeConfig.w(24),
                           ),
                         ),
@@ -124,7 +125,14 @@ class _PinCreationState extends State<PinCreation> {
                                 width: double.infinity,
                                 height: SizeConfig.h(52),
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => FaceIdPage(),
+                                      ),
+                                    );
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xFF93C5E8),
                                     foregroundColor: Colors.white,
