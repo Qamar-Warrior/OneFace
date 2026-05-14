@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/classes/screenSizer.dart';
 
+import '../const.dart';
+
 class CustomInputField extends StatelessWidget {
   final String hint;
   final IconData leadingIcon;
@@ -21,7 +23,7 @@ class CustomInputField extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: const Color(0xFFE5E7EB),
+          color: const Color(0xFFFFFFFF),
           width: SizeConfig.w(1.5),
         ),
         boxShadow: [
@@ -37,7 +39,7 @@ class CustomInputField extends StatelessWidget {
           SizedBox(width: SizeConfig.w(14)),
           Icon(
             leadingIcon,
-            color: const Color(0xFF9CA3AF),
+            color: kInnerFieldTextColor,
             size: SizeConfig.w(20),
           ),
           SizedBox(width: SizeConfig.w(10)),
@@ -47,13 +49,13 @@ class CustomInputField extends StatelessWidget {
 
               style: TextStyle(
                 fontSize: SizeConfig.w(14),
-                color: Color(0xFF374151),
+                color: kInnerFieldTextColor,
               ),
               decoration: InputDecoration(
                 hintText: hint,
                 hintStyle: TextStyle(
                   fontSize: SizeConfig.w(14),
-                  color: Color(0xFFD1D5DB),
+                  color: kInnerFieldTextColor,
                 ),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.zero,

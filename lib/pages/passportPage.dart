@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/classes/screenSizer.dart';
 import 'package:oneface/classes/passPortButton.dart';
-
+import 'package:oneface/const.dart';
+import 'package:oneface/pages/pinCreation.dart';
 import '../classes/imagePosition.dart';
 
 class PassportScreen extends StatefulWidget {
@@ -83,7 +84,7 @@ class _PassportScreenState extends State<PassportScreen> {
                           style: TextStyle(
                             fontSize: SizeConfig.w(22),
                             fontWeight: FontWeight.w700,
-                            color: Color(0xFF1A1A2E),
+                            color: kRegistrationColor,
                             height: SizeConfig.h(1.3),
                           ),
                         ),
@@ -95,7 +96,7 @@ class _PassportScreenState extends State<PassportScreen> {
                           "JShShR yoki Passport seriyasi",
                           style: TextStyle(
                             fontSize: SizeConfig.w(13),
-                            color: Color(0xFF6B7280),
+                            color: kRegistrationColor,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -120,7 +121,7 @@ class _PassportScreenState extends State<PassportScreen> {
                           "Tug'ilgan kun",
                           style: TextStyle(
                             fontSize: SizeConfig.w(13),
-                            color: Color(0xFF6B7280),
+                            color: kRegistrationColor,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -153,7 +154,7 @@ class _PassportScreenState extends State<PassportScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: SizeConfig.w(12),
-                          color: Color(0xFF9CA3AF),
+                          color: kRegistrationColor,
                           height: SizeConfig.h(1.5),
                         ),
                       ),
@@ -165,7 +166,14 @@ class _PassportScreenState extends State<PassportScreen> {
                         width: double.infinity,
                         height: SizeConfig.h(52),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PinCreation(),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF93C5E8),
                             foregroundColor: Colors.white,

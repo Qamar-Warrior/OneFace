@@ -3,6 +3,7 @@ import 'package:oneface/classes/screenSizer.dart';
 import 'package:oneface/classes/telefonRaqamButtons.dart';
 import 'package:oneface/pages/pinCreation.dart';
 import 'package:oneface/classes/imagePosition.dart';
+import 'package:oneface/const.dart';
 
 class TelefonScreen extends StatefulWidget {
   const TelefonScreen({super.key});
@@ -58,7 +59,7 @@ class _TelefonScreenState extends State<TelefonScreen> {
                           style: TextStyle(
                             fontSize: SizeConfig.w(22),
                             fontWeight: FontWeight.w700,
-                            color: Color(0xFF1A1A2E),
+                            color: kRegistrationColor,
                             height: SizeConfig.h(1.3),
                           ),
                         ),
@@ -70,7 +71,7 @@ class _TelefonScreenState extends State<TelefonScreen> {
                           "Telefon raqamini kiriting",
                           style: TextStyle(
                             fontSize: SizeConfig.w(13),
-                            color: Color(0xFF6B7280),
+                            color: kRegistrationColor,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -90,7 +91,7 @@ class _TelefonScreenState extends State<TelefonScreen> {
                           "SMS PINni kiriting",
                           style: TextStyle(
                             fontSize: SizeConfig.w(13),
-                            color: Color(0xFF6B7280),
+                            color: kRegistrationColor,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -119,7 +120,7 @@ class _TelefonScreenState extends State<TelefonScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: SizeConfig.w(12),
-                          color: Color(0xFF9CA3AF),
+                          color: kRegistrationColor,
                           height: SizeConfig.h(1.5),
                         ),
                       ),

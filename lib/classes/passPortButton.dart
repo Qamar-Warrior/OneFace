@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oneface/classes/screenSizer.dart';
+import 'package:oneface/const.dart';
 
 class CustomInputField extends StatelessWidget {
   final TextEditingController controller;
@@ -27,7 +28,7 @@ class CustomInputField extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: const Color(0xFFE5E7EB),
+          color: kInnerFieldTextColor,
           width: SizeConfig.w(1.5),
         ),
         boxShadow: [
@@ -43,7 +44,7 @@ class CustomInputField extends StatelessWidget {
           SizedBox(width: SizeConfig.w(14)),
           Icon(
             leadingIcon,
-            color: const Color(0xFF9CA3AF),
+            color: kInnerFieldTextColor,
             size: SizeConfig.w(20),
           ),
           SizedBox(width: SizeConfig.w(10)),
@@ -54,13 +55,13 @@ class CustomInputField extends StatelessWidget {
               onTap: readOnly ? onTrailingTap : null,
               style: TextStyle(
                 fontSize: SizeConfig.w(14),
-                color: Color(0xFF374151),
+                color: kInnerFieldTextColor,
               ),
               decoration: InputDecoration(
                 hintText: hint,
                 hintStyle: TextStyle(
                   fontSize: SizeConfig.w(14),
-                  color: Color(0xFFD1D5DB),
+                  color: kInnerFieldTextColor,
                 ),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.zero,
@@ -74,7 +75,7 @@ class CustomInputField extends StatelessWidget {
               margin: const EdgeInsets.all(8),
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
-                color: const Color(0xFF3B82F6).withOpacity(0.1),
+                color: kInnerFieldTextColor.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
