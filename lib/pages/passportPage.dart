@@ -55,6 +55,7 @@ class _PassportScreenState extends State<PassportScreen> {
 
           // Main content
           SafeArea(
+            bottom: false,
             child: Column(
               children: [
                 Expanded(

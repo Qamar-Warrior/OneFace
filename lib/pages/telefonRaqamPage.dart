@@ -29,6 +29,7 @@ class _TelefonScreenState extends State<TelefonScreen> {
             height: SizeConfig.h(500),
           ),
           SafeArea(
+            bottom: false,
             child: Column(
               children: [
                 Expanded(

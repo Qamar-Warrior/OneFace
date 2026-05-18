@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oneface/pages/faceRecognitionPage.dart';
+import '../classes/filledCyanButton.dart';
+import '../classes/outlinedCyanButton.dart';
 import '../classes/screenSizer.dart';
 import '../const.dart';
 
@@ -15,6 +18,7 @@ class FaceIdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: SizeConfig.w(20)),
           child: Column(
@@ -67,82 +71,30 @@ class FaceIdPage extends StatelessWidget {
                 ),
               ),
               Spacer(flex: 1),
-              _OutlinedCyanButton(
+              OutlinedCyanButton(
                 label: "O'tkazib yuborish",
                 onTap: () => Navigator.maybePop(context),
               ),
               const SizedBox(height: 12),
               Container(
-                margin: EdgeInsets.only(bottom: 10),
-                child: _FilledCyanButton(
+                margin: EdgeInsets.only(bottom: 20),
+                child: FilledCyanButton(
                   label:
                       'Skanerlash'
                       'ni '
                       'boshlash',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FaceRecognitionPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _OutlinedCyanButton extends StatelessWidget {
-  final String label;
-  final VoidCallback onTap;
-
-  const _OutlinedCyanButton({required this.label, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 500,
-      height: 52,
-      child: OutlinedButton(
-        onPressed: onTap,
-        style: OutlinedButton.styleFrom(
-          foregroundColor: const Color(0xFF29B6F6),
-          side: const BorderSide(color: Color(0xFF29B6F6), width: 1.5),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        child: Text(
-          label,
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-        ),
-      ),
-    );
-  }
-}
-
-class _FilledCyanButton extends StatelessWidget {
-  final String label;
-  final VoidCallback onTap;
-
-  const _FilledCyanButton({required this.label, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 500,
-      height: 52,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF29B6F6),
-          foregroundColor: Colors.white,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        child: Text(
-          label,
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
         ),
       ),
     );

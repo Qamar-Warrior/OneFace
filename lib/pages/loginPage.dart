@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
     SizeConfig.init(context);
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: SizeConfig.h(24)),
           child: Column(

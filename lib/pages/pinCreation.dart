@@ -44,6 +44,7 @@ class _PinCreationState extends State<PinCreation> {
             height: SizeConfig.h(350),
           ),
           SafeArea(
+            bottom: false,
             child: Column(
               children: [
                 Expanded(
