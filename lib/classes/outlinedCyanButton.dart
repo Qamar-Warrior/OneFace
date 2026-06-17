@@ -29,7 +29,7 @@ class OutlinedCyanButton extends StatelessWidget {
           label,
           style: TextStyle(
             fontSize: SizeConfig.w(15),
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
